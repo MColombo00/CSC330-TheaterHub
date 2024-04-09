@@ -1,0 +1,4 @@
+.venv/
+
+*.pwc
+__pycache__/
