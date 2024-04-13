@@ -6,9 +6,41 @@ from app.models import City
 import sys
 
 @app.route('/')
-def hello():
-    return render_template('homepage.html')
+def landing_page():
+    return render_template('landing-page.html')
 
+@app.route('/buy_tickets')
+def buy_tickets_page():
+    return render_template('buy_tickets.html')
+
+@app.route('/cart')
+def cart_page():
+    return render_template('cart.html')
+
+@app.route('/profile')
+def profile_page():
+    return render_template('profile.html')
+
+@app.route('/contact_us')
+def contact_us_page():
+    return render_template('contact_us.html')
+
+@app.route('/log_in')
+def log_in_page():
+    return render_template('log_in.html')
+
+@app.route('/admin_login')
+def admin_login_page():
+    return render_template('admin_login.html')
+
+# Not implemented yet
+#@app.route('/register')
+#def admin_login_page():
+#    return render_template('admin_login.html')
+
+"""
+The below code we can use for reference, but is unnecessary.
+DELETE WHEN UNNEEDED.
 @app.route('/add', methods=['GET', 'POST'])
 def add_record():
     form = AddForm()
@@ -70,3 +102,4 @@ def sort_by_name():
     all = db.session.query(City).order_by(City.city).all()
     print(all, file=sys.stderr)
     return render_template('view_cities.html', cities=all)
+"""
