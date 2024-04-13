@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TheaterHub</title>
+<link rel="stylesheet" href="GUI Styles.css">
+</head>
+<body>
+  <div class="content">
+    <div class="upper-banner-background"></div>
+    <a href="admin_login.html" class="admin-login">Admin? Log in here.</a>
+    <div class="logo-container">
+      <a href="landing_page.html">
+        <div class="logo" id="logo">
+          <img src="img/logo.png">
+        </div>
+      </a>
+      <div class="tab" id="tabs">
+        <a href="buy_tickets.html">Buy Tickets</a>
+        <a href="cart.html">Cart</a>     
+        <a href="profile.html">Profile</a>     
+        <a href="contact_us.html">Contact Us</a>     
+        <a href="log_in.html">Log In</a>     
+      </div>
+    </div>
+    <div class="form-container">
+      <div class="title" style="margin-left:0px;">Admin Log In</div>
+      <a href="log_in.html" style="font-size:12px;">Not an admin? Log in here.</a>
+      <form action="login_handler.php" method="POST"> 
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div class="button-container">
+          <button type="submit">Log In</button>
+          <a href="register.html"><button type="button">Register</button></a>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
