@@ -9,6 +9,9 @@ class User(db.Model):
     password = db.Column(db.String(64), unique=False, nullable=False)
     favorite_genre = db.Column(db.String(64), unique=False, nullable=False)
 
+    def __repr__(self):
+        return self.user_id + ': ' + str(self.email_address)
+
 class Admin(db.Model):
     __tablename__ = 'admin'
     admin_id = db.Column(db.String(64), primary_key=True)
@@ -18,4 +21,4 @@ class Admin(db.Model):
     password = db.Column(db.String(64), unique=False, nullable=False)
 
     def __repr__(self):
-        return self.user_id + ': ' + str(self.email_address)
+        return self.admin_id + ': ' + str(self.email_address)

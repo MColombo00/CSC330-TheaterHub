@@ -5,6 +5,8 @@ from app import db
 from app.models import City
 import sys
 
+api_key = 'eb6763dcd081514c5d528c58c863dd95'
+
 @app.route('/')
 def landing_page():
     return render_template('landing-page.html')
