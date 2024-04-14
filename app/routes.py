@@ -34,10 +34,9 @@ def log_in_page():
 def admin_login_page():
     return render_template('admin_login.html')
 
-# Not implemented yet
-#@app.route('/register')
-#def admin_login_page():
-#    return render_template('admin_login.html')
+@app.route('/register')
+def register_page():
+    return render_template('register.html')
 
 
 #The below code we can use for reference, but is unnecessary.
