@@ -18,19 +18,6 @@ body {
     bottom: 0;
 }
 
-.recommended {
-    margin-top: 5px;
-    margin-left: 10px;
-    font-size: 36px;
-    color: black;
-}
-
-.movies_in_genre {
-    margin-left: 40px;
-    margin-top: 10px;
-    font-size: 26px;
-    color: black;
-}
 
 .content {
     height: 1030px;
@@ -106,6 +93,7 @@ body {
   margin-left:50px;
 }
 
+
 /* For log in/admin log in*/
 
 
@@ -141,4 +129,29 @@ body {
 
 .button-container button {
   margin-left: 10px; 
+}
+
+/* For the landing page */
+.recommended {
+    margin-top: 5px;
+    margin-left: 10px;
+    font-size: 36px;
+    color: black;
+}
+
+.movies_in_genre {
+    margin-left: 40px;
+    margin-top: 10px;
+    font-size: 26px;
+    color: black;
+}
+
+.square {
+    width: 192px;
+    height: 288px;
+    border: 1px solid black;
+    text-align: center;
+    line-height: 288px;
+    margin-left: 35px;
+    margin-top: 5px;
 }
