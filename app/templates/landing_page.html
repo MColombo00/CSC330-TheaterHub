@@ -1,29 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TheaterHub</title>
-<link rel="stylesheet" href="GUI Styles.css">
-</head>
-<body>
-  <div class="content">
-    <div class="upper-banner-background"></div> 
-    <a href="/admin_login" class="admin-login">Admin? Log in here.</a>
-    <div class="logo-container">
-      <a href="/landing_page">
-        <div class="logo" id="logo">
-          <img src="img/logo.png">
-        </div>
-      </a>
-      <div class="tab" id="tabs">
-        <a href="/buy_tickets">Buy Tickets</a>
-        <a href="/cart">Cart</a>     
-        <a href="/profile">Profile</a>     
-        <a href="/contact_us">Contact Us</a>     
-        <a href="/log_in">Log In</a>     
-      </div>
-    </div>
+{% extends "base.html" %}
+{% block title %}TheaterHub - Landing Page{% endblock %}
+{% block content %}
     <span class="recommended">Recommended for you!</span>
     <span class="movies_in_genre">Movies in &lt;genre1&gt;:</span>
     <div class="poster-container">
@@ -41,8 +18,5 @@
       <div class="square" style="margin-left: 20px;">Movie Poster</div>
       <div class="square" style="margin-left: 20px;">Movie Poster</div>
     </div>
-
-  </div>
-</body>
-</html>
+{% endblock %}
 

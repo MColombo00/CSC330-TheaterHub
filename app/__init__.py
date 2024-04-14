@@ -12,7 +12,7 @@ load_dotenv('.flaskenv')
 DB_NAME = environ.get('SQLITE_DB')
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 app.config['SECRET_KEY'] = 'csc33O'
 
 DB_CONFIG_STR = 'sqlite:///' + os.path.join(basedir, DB_NAME)

@@ -1,29 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TheaterHub</title>
-<link rel="stylesheet" href="GUI Styles.css">
-</head>
-<body>
-  <div class="content">
-    <div class="upper-banner-background"></div>
-    <a href="/admin_login" class="admin-login">Admin? Log in here.</a>
-    <div class="logo-container">
-      <a href="/landing_page">
-        <div class="logo" id="logo">
-          <img src="img/logo.png">
-        </div>
-      </a>
-      <div class="tab" id="tabs">
-        <a href="/buy_tickets">Buy Tickets</a>
-        <a href="/cart">Cart</a>     
-        <a href="/profile">Profile</a>     
-        <a href="/contact_us">Contact Us</a>     
-        <a href="/log_in">Log In</a>     
-      </div>
-    </div>
+{% extends "base.html" %}
+{% block title %}TheaterHub - Log In{% endblock %}
+{% block content %}
     <div class="form-container">
       <div class="title" style="margin-left:0px;">Log In</div>
       <form action="login_handler.php" method="POST"> 
@@ -38,12 +15,8 @@
         <div class="button-container">
           <button type="submit">Log In</button>
           <a href="/register"><button type="button">Register</button></a>
-        </div>
-      </form>
-    </div>
-  </div>
-</body>
-</html>
+{% endblock %}
+
 
 
 

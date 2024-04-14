@@ -2,14 +2,13 @@ from app import app
 from flask import render_template, redirect, url_for
 from app.forms import AddForm, DeleteForm, SearchForm
 from app import db
-from app.models import City
 import sys
 
 api_key = 'eb6763dcd081514c5d528c58c863dd95'
 
 @app.route('/')
 def landing_page():
-    return render_template('landing-page.html')
+    return render_template('landing_page.html')
 
 @app.route('/buy_tickets')
 def buy_tickets_page():
@@ -40,9 +39,9 @@ def admin_login_page():
 #def admin_login_page():
 #    return render_template('admin_login.html')
 
-"""
-The below code we can use for reference, but is unnecessary.
-DELETE WHEN UNNEEDED.
+
+#The below code we can use for reference, but is unnecessary.
+#DELETE WHEN UNNEEDED.
 @app.route('/add', methods=['GET', 'POST'])
 def add_record():
     form = AddForm()
@@ -104,4 +103,3 @@ def sort_by_name():
     all = db.session.query(City).order_by(City.city).all()
     print(all, file=sys.stderr)
     return render_template('view_cities.html', cities=all)
-"""
