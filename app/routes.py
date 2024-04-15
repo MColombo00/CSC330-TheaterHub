@@ -4,6 +4,7 @@ from app.forms import AddForm, DeleteForm, SearchForm
 from app import db
 import sys
 import sqlite3
+from flask import session
 
 api_key = 'eb6763dcd081514c5d528c58c863dd95'
 
@@ -85,7 +86,13 @@ def user_login():
     if user:
         password = user[1]
         if password == inputted_password:
+            session['logged_in'] = True  # Set session variable
             return redirect(url_for('landing_page'))
     
     error_message = 'Incorrect E-mail or Password.'
-    return redirect(url_for('log_in_page', error = error_message))
+    return redirect(url_for('log_in_page', error=error_message))
+
+@app.route('/logout')
+def logout():
+    session.pop('logged_in', None)
+    return redirect(url_for('landing_page'))
