@@ -6,10 +6,10 @@ cursor = conn.cursor()
 
 cursor.execute('''CREATE TABLE IF NOT EXISTS users
                 (email_address TEXT NOT NULL,
-                password NOT NULL)''')
+                password TEXT NOT NULL)''')
 
 def register_user(email, user_password):
-    cursor.execute('SELECT * FROM users WHERE email_address=?', email)
+    cursor.execute('SELECT * FROM users WHERE email_address=?', (email,))
     user = cursor.fetchone()
     if user:
         return 'An account using this email address already exists'
