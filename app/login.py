@@ -1,21 +1,25 @@
 import sqlite3
-from app import db
-from app import User
-from app import Admin
 
+conn = sqlite3.connect('profiles.db')
+cursor = conn.cursor()
 
-def verify_login(email, user_password):
-    user_email = User.query.filter_by(email_address=email).first()
+def user_login(email, user_password):
+    cursor.execute('SELCT * FROM users WHERE email_address=?', email)
+    user = cursor.fetchone()
+    password = user[1]
     
-    if email and user_email.password == user_password:
-        return redirect(url_for('landing_page'))
+    if email and password == user_password:
+        return 'Sign in'
     else:
         return 'Incorrect Email or Password'
     
 def admin_verify(email, admin_password):
-    admin_email = Admin.query.filter_by(email_address=email).first()
-    if email and admin_email.password == admin_password:
-        return redirect(url_for('landing_page'))
+    cursor.execut('SELECT * FROM admins WHERE email_address=?', email)
+    admin = cursor.fetchone()
+    password = admin[1]
+
+    if email and password == admin_password:
+        return 'sign in'
     else:
         return 'Incorrect Email or Password'
     
