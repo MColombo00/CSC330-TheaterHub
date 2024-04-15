@@ -96,7 +96,6 @@ body {
 
 /* For log in/admin log in*/
 
-
 .form-container {
   width: 90%; 
   margin: 10px auto; 
@@ -131,6 +130,9 @@ body {
   margin-left: 10px; 
 }
 
+.error-message-container {
+  overflow: hidden;
+}
 /* For the landing page */
 .recommended {
     margin-top: 5px;

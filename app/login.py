@@ -4,22 +4,26 @@ conn = sqlite3.connect('profiles.db')
 cursor = conn.cursor()
 
 def user_login(email, user_password):
-    cursor.execute('SELCT * FROM users WHERE email_address=?', email)
+    cursor.execute('SELECT * FROM users WHERE email_address=?', (email,))
     user = cursor.fetchone()
-    password = user[1]
-    
-    if email and password == user_password:
-        return 'Sign in'
+    if user:
+        password = user[1]
+        if password == user_password:
+            return 'Signed in'
+        else:
+            return 'Incorrect Email or Password'
     else:
         return 'Incorrect Email or Password'
     
 def admin_verify(email, admin_password):
-    cursor.execut('SELECT * FROM admins WHERE email_address=?', email)
+    cursor.execute('SELECT * FROM admins WHERE email_address=?', (email,))
     admin = cursor.fetchone()
-    password = admin[1]
-
-    if email and password == admin_password:
-        return 'sign in'
+    if email
+        password = admin[1]
+        if password == admin_password:
+            return 'Signed in'
+        else:
+            'Incorrect Email or Password'
     else:
         return 'Incorrect Email or Password'
     
