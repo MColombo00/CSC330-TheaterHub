@@ -9,7 +9,6 @@ api_key = 'eb6763dcd081514c5d528c58c863dd95'
 
 def get_db_connection():
     conn = sqlite3.connect('profiles.db')
-    conn.row_factory = sqlite3.Row
     return conn
 
 @app.route('/')
@@ -34,7 +33,8 @@ def contact_us_page():
 
 @app.route('/log_in')
 def log_in_page():
-    return render_template('log_in.html')
+    error_message = request.args.get('error')
+    return render_template('log_in.html', error=error_message)
 
 @app.route('/admin_login')
 def admin_login_page():
@@ -60,6 +60,7 @@ def register_handler():
     
     cursor.execute('SELECT * FROM users WHERE email_address=?', (email,))
     user = cursor.fetchone()
+
     if user:
         conn.close()
         error_message = 'An account using this e-mail address already exists.'
@@ -70,3 +71,21 @@ def register_handler():
 
         conn.close()
         return redirect('/log_in')
+
+@app.route('/login_handler', methods=['POST'])
+def user_login():
+    email = request.form.get('email')
+    inputted_password = request.form.get('password')
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    cursor.execute('SELECT * FROM users WHERE email_address=?', (email,))
+    user = cursor.fetchone()
+    if user:
+        password = user[1]
+        if password == inputted_password:
+            return redirect(url_for('landing_page'))
+    
+    error_message = 'Incorrect E-mail or Password.'
+    return redirect(url_for('log_in_page', error = error_message))
