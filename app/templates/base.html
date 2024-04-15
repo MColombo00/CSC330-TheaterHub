@@ -20,7 +20,10 @@
                     <a href="/cart">Cart</a>     
                     <a href="/profile">Profile</a>     
                     <a href="/contact_us">Contact Us</a>     
-                    <a href="/log_in">Log In</a>     
+<a href="{% if session.logged_in %}/logout{% else %}/log_in{% endif %}">
+    {% if session.logged_in %}Log Out{% else %}Log In{% endif %}
+</a>
+ 
                  </div>
               </div>
               {% block content %}{% endblock %}
