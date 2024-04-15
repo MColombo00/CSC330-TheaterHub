@@ -1,23 +1,20 @@
 import sqlite3
-from app import db
-from app import User
-import mysql.connector
 
-user_db = mysql.connector.connect(
-    host = 'localhost',
-    user = 'username',
-    password = 'password',
-    database = 'User')
+conn = sqlite3.connect('profiles.db')
 
-userCursor = user_db.cursor()
+cursor = conn.cursor()
+
+cursor.execute('''CREATE TABLE IF NOT EXISTS users
+                (email_address TEXT NOT NULL,
+                password NOT NULL)''')
 
 def register_user(email, user_password):
-    user_email = User.query.filter_by(email_address=email).first()
-    if email:
+    cursor.execute('SELECT * FROM users WHERE email_address=?', email)
+    user = cursor.fetchone()
+    if user:
         return 'An account using this email address already exists'
     else:
-        sql = "INSERT INTO user (email_address, password) VALUES (%s, %s)"
-        val = [email, user_password]
-        userCursor.executemany(sql,val)
-        user_db.commit()
-
+        cursor.execute('INSERT INTO user (email_address, password) VALUES (?, ?)',(email, user_password))
+        conn.commit
+        
+conn.close()
