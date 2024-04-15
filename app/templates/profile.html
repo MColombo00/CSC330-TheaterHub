@@ -1,6 +1,14 @@
 {% extends "base.html" %}
-{% block title %}TheaterHub - Log In{% endblock %}
+{% block title %}TheaterHub - Profile{% endblock %}
 {% block content %}
+    {% if session.logged_in %}
+    <span class="recommended">Profile</span>
+    <div class="profile-info">
+        <p>Email: {{ session.email }}</p>
+        <p>Password: {{ session.password }}</p>
+    </div>
+    {% else %} 
     <span class="title">You are not logged in.</span>
     <a style="font-size:16px; width:100%; text-align:center;" href="log_in">Log in here</a>
+    {% endif %}
 {% endblock %}

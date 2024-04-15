@@ -10,7 +10,7 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS users
 conn.commit()
 
 cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
-print(cursor.fetchall())
+
 
 conn.close()
 
