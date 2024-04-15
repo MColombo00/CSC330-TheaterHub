@@ -16,7 +16,7 @@ def user_login(email, user_password):
         return 'Incorrect Email or Password'
     
 def admin_verify(email, admin_password):
-    cursor.execut('SELECT * FROM admins WHERE email_address=?', (email,))
+    cursor.execute('SELECT * FROM admins WHERE email_address=?', (email,))
     admin = cursor.fetchone()
     if email
         password = admin[1]
