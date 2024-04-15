@@ -1,10 +1,16 @@
 from app import app
-from flask import render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, request, jsonify
 from app.forms import AddForm, DeleteForm, SearchForm
 from app import db
 import sys
+import sqlite3
 
 api_key = 'eb6763dcd081514c5d528c58c863dd95'
+
+def get_db_connection():
+    conn = sqlite3.connect('profiles.db')
+    conn.row_factory = sqlite3.Row
+    return conn
 
 @app.route('/')
 def landing_page():
@@ -36,69 +42,31 @@ def admin_login_page():
 
 @app.route('/register')
 def register_page():
-    return render_template('register.html')
+    error_message = request.args.get('error')
+    return render_template('register.html', error=error_message)
 
+@app.route('/register_handler', methods=['POST'])
+def register_handler():
+    email = request.form.get('email')
+    password = request.form.get('password')
+    confirm_password = request.form.get('confirm_password')
 
-#The below code we can use for reference, but is unnecessary.
-#DELETE WHEN UNNEEDED.
-@app.route('/add', methods=['GET', 'POST'])
-def add_record():
-    form = AddForm()
-    if form.validate_on_submit():
-        # Extract values from form
-        city_name = form.city.data
-        population = form.population.data
+    if password != confirm_password:
+        error_message = 'Passwords do not match'
+        return redirect(url_for('register_page', error=error_message))
 
-        # Create a city record to store in the DB
-        c = City(city=city_name, population=population)
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    
+    cursor.execute('SELECT * FROM users WHERE email_address=?', (email,))
+    user = cursor.fetchone()
+    if user:
+        conn.close()
+        error_message = 'An account using this e-mail address already exists.'
+        return redirect(url_for('register_page', error=error_message))
+    else:
+        cursor.execute('INSERT INTO users (email_address, password) VALUES (?, ?)', (email, password))
+        conn.commit()
 
-        # add record to table and commit changes
-        db.session.add(c)
-        db.session.commit()
-
-        form.city.data = ''
-        form.population.data = ''
-        return redirect(url_for('add_record'))
-    return render_template('add.html', form=form)
-
-@app.route('/delete', methods=['GET', 'POST'])
-def delete_record():
-    form = DeleteForm()
-    if form.validate_on_submit():
-        # Query DB for matching record (we'll grab the first record in case
-        # there's more than one).
-        to_delete = db.session.query(City).filter_by(city = form.city.data).first()
-
-        # If record is found delete from DB table and commit changes
-        if to_delete is not None:
-            db.session.delete(to_delete)
-            db.session.commit()
-
-        form.city.data = ''
-        # Redirect to the view_all route (view function)
-        return redirect(url_for('view'))
-    return render_template('delete.html', form=form)
-
-@app.route('/search', methods=['GET', 'POST'])
-def search_by_name():
-    form = SearchForm()
-    if form.validate_on_submit():
-        # Query DB table for matching name
-        record = db.session.query(City).filter_by(city = form.city.data).all()
-        if record:
-            return render_template('view_cities.html', cities=record)
-        else:
-            return render_template('not_found.html')
-    return render_template('search.html', form=form)
-
-@app.route('/view_all')
-def view():
-    all = db.session.query(City).all()
-    print(all, file=sys.stderr)
-    return render_template('view_cities.html', cities=all)
-
-@app.route('/sort_by_name')
-def sort_by_name():
-    all = db.session.query(City).order_by(City.city).all()
-    print(all, file=sys.stderr)
-    return render_template('view_cities.html', cities=all)
+        conn.close()
+        return redirect('/log_in')
