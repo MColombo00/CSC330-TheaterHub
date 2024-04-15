@@ -4,7 +4,7 @@ conn = sqlite3.connect('profiles.db')
 cursor = conn.cursor()
 
 def user_login(email, user_password):
-    cursor.execute('SELCT * FROM users WHERE email_address=?', (email,))
+    cursor.execute('SELECT * FROM users WHERE email_address=?', (email,))
     user = cursor.fetchone()
     if user:
         password = user[1]
