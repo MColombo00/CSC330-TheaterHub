@@ -87,6 +87,8 @@ def user_login():
         password = user[1]
         if password == inputted_password:
             session['logged_in'] = True  # Set session variable
+            session['email'] = email  # Store email in session
+            session['password'] = password  # Store password in session
             return redirect(url_for('landing_page'))
     
     error_message = 'Incorrect E-mail or Password.'

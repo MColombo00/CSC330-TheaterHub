@@ -1,6 +1,20 @@
 {% extends "base.html" %}
-{% block title %}TheaterHub - Log In{% endblock %}
+{% block title %}TheaterHub - Profile{% endblock %}
 {% block content %}
-    <span class="title">You are not logged in.</span>
-    <a style="font-size:16px; width:100%; text-align:center;" href="log_in">Log in here</a>
+    {% if session.logged_in %}
+        <div class="profile" style="margin-left:20px;">
+            <h1 class="section-title">Profile</h1>
+            <div class="profile-info" style="margin-left:20px;">
+                <h2 style="font-weight: normal;">
+                    <p><span style="background-color: #f2f2f2; color: #666; display: inline-block; padding: 5px 10px;">Email:{{ session.email }}</span> </p>
+                    <p><span style="background-color: #f2f2f2; color: #666; display: inline-block; padding: 5px 10px;">Password: {{ session.password }}</span></p>
+                </h2>
+            </div>
+        </div>
+    {% else %}
+        <div class="not-logged-in">
+            <h2 class="section-title">You are not logged in.</h2>
+            <a class="login-link" href="log_in">Log in here</a>
+        </div>
+    {% endif %}
 {% endblock %}
