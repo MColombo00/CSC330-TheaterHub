@@ -46,6 +46,10 @@ def register_page():
     error_message = request.args.get('error')
     return render_template('register.html', error=error_message)
 
+@app.route('/delete_account')
+def delete_account_page():
+    return render_template('delete_account.html')
+
 @app.route('/change_email')
 def change_email_page():
     return render_template('change_email.html')
@@ -130,7 +134,7 @@ def change_email():
             conn.close()
             return redirect(url_for('profile_page'))
     
-    error_message = 'Incorrect password.'
+    error_message = 'Incorrect email.'
     return redirect(url_for('update_password_page', error=error_message))
 
 @app.route('/update_password_handler', methods=['POST'])
@@ -160,3 +164,21 @@ def reset_password():
     #implement password reset
 
     return redirect(url_for('profile_page'))
+
+@app.route('/delete_account_handler', methods=['POST'])
+def delete_account():
+    inputted_email = request.form.get('email')
+    
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    cursor.execute('SELECT * FROM users WHERE email_address=?', (inputted_email,))
+    user = cursor.fetchone()
+
+    if user:
+        email = user[0]
+        if email == inputted_email:
+            cursor.execute('DELETE FROM users WHERE email_address=?', (inputted_email,))
+            conn.commit()
+            conn.close()
+            return redirect(url_for('logout'))
