@@ -46,6 +46,18 @@ def register_page():
     error_message = request.args.get('error')
     return render_template('register.html', error=error_message)
 
+@app.route('/change_email')
+def change_email_page():
+    return render_template('change_email.html')
+
+@app.route('/update_password')
+def update_password_page():
+    return render_template('update_password.html')
+
+@app.route('/reset_password')
+def reset_password_page():
+    return render_template('reset_password.html')
+
 @app.route('/register_handler', methods=['POST'])
 def register_handler():
     email = request.form.get('email')
@@ -98,3 +110,53 @@ def user_login():
 def logout():
     session.pop('logged_in', None)
     return redirect(url_for('landing_page'))
+
+@app.route('/change_email_handler', methods=['POST'])
+def change_email():
+    inputted_email = request.form.get('email')
+    new_email = request.form.get('new_email')
+    
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    cursor.execute('SELECT * FROM users WHERE email_address=?', (inputted_email,))
+    user = cursor.fetchone()
+
+    if user:
+        email = user[0]
+        if email == inputted_email:
+            cursor.execute('UPDATE users SET email_address=? WHERE email_address=?', (new_email, inputted_email))
+            conn.commit()
+            conn.close()
+            return redirect(url_for('profile_page'))
+    
+    error_message = 'Incorrect password.'
+    return redirect(url_for('update_password_page', error=error_message))
+
+@app.route('/update_password_handler', methods=['POST'])
+def update_password():    
+    inputted_password = request.form.get('password')
+    new_password = request.form.get('new_password')
+    
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    cursor.execute('SELECT * FROM users WHERE password=?', (inputted_password,))
+    user = cursor.fetchone()
+
+    if user:
+        password = user[1]
+        if password == inputted_password:
+            cursor.execute('UPDATE users SET password=? WHERE password=?', (new_password, inputted_password))
+            conn.commit()
+            conn.close()
+            return redirect(url_for('profile_page'))
+    
+    error_message = 'Incorrect password.'
+    return redirect(url_for('update_password_page', error=error_message))
+
+@app.route('/reset_password_handler', methods=['POST'])
+def reset_password():
+    #implement password reset
+
+    return redirect(url_for('profile_page'))

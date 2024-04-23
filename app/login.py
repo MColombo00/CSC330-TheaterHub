@@ -18,7 +18,7 @@ def user_login(email, user_password):
 def admin_verify(email, admin_password):
     cursor.execute('SELECT * FROM admins WHERE email_address=?', (email,))
     admin = cursor.fetchone()
-    if email
+    if email:
         password = admin[1]
         if password == admin_password:
             return 'Signed in'
