@@ -3,39 +3,55 @@ import json
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.firefox.options import Options
+from random import randint
 import time
 
-url = "https://www.amctheatres.com/movie-theatres/morristown/amc-headquarters-plaza-10/showtimes/all/2024-04-24/amc-headquarters-plaza-10/all"
+f1 = open("MovieLocationScraper/Data Files/AMC/AMC-Theaters-List.txt", "r")
 
-options = webdriver.FirefoxOptions()
+options = Options()
+options.add_argument("-headless")
 driver = webdriver.Firefox(options=options)
-driver.get(url)
 
-time.sleep(5)
+for x in range(3):
+    url = str(f1.readline() + "/showtimes")
+    # print(url)
+    driver.get(url)
+    print ("Headless Firefox Initialized for URL: " + url)
+    time.sleep(5)
 
-html = driver.page_source
+    html = driver.page_source
+    soup = BeautifulSoup(html, "html.parser")
+    all_data = soup.find_all(['div'], class_ = 'ShowtimesByTheatre-film')
+    location = url.strip().split("/")
 
-soup = BeautifulSoup(html, "html.parser")
+    movie_list = []
+    for x in all_data:
+        # print(x)
+        showtimes = []
+        title = ""
 
-data = soup.find_all(['h2','a'])
+        find_h2 = x.find("h2")
+        for n in find_h2:
+            title = n.get_text()
 
-print(soup.find('h2', class_ = "").get_text())
-# div_ob = []
+        st_unit = x.find_all("a", class_ = "Btn Btn--default")
+        for st in st_unit:
+            showtimes.append(st.get_text())
+        
+        for t in showtimes:
+            mov_dat = {
+            'movie' : title,
+            'time' : t,
+            'location' : location[4],
+            'theater' : location[5].strip("\n")
+            }
+            movie_list.append(mov_dat)
 
-# for div in data:
-#     mov = div.find('h2', class_ = "").get_text()
-#     showing = div.find('a', class_ = "Btn Btn--default")
+# print(movie_list)
 
 
-
-
-#     div_data = {
-#         'movie' : ,
-#         'time' : div.find('a', class_ = "Btn Btn--default")
-#     }
-#     div_ob.append(div_data)
-
-# with open('MovieLocationScraper\Data Files\AMC\divs_output.json', 'w') as file:
-#    json.dump(div_ob, file, indent = 4)
+with open('MovieLocationScraper\Data Files\AMC\\amc-movies.json', 'w') as file:
+   json.dump(movie_list, file, indent = 4) 
 
 driver.close()

@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import datetime
 
 f1 = open("MovieLocationScraper/Data Files/AMC/AMC-Theaters-List.txt", "r")
-f2 = open("AMC-Theaters-HTML.txt", "w")
+f2 = open("MovieLocationScraper\Data Files\AMC\AMC-Theaters-HTML.txt", "w")
 date = datetime.datetime.now()
 
 
@@ -21,9 +21,9 @@ for x in range(1):
 
     print(NURL)
 
-    page = requests.get(NURL)
-    soup = BeautifulSoup(page.content, "html.parser")
+    #page = requests.get(NURL)
+    #soup = BeautifulSoup(page.content, "html.parser")
     
-    f2.write( str(NURL) + "\n\n" + str(soup) + "\n\n\n")
+    f2.write(NURL + "\n")
 
 
