@@ -1,0 +1,404 @@
+[
+    {
+        "movie": "Civil War",
+        "time": "2:00pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Civil War",
+        "time": "4:30pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Civil War",
+        "time": "3:15pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Civil War",
+        "time": "7:30pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Civil War",
+        "time": "9:00pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Godzilla x Kong: The New Empire",
+        "time": "4:10pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Godzilla x Kong: The New Empire",
+        "time": "6:50pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Godzilla x Kong: The New Empire",
+        "time": "9:30pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Godzilla x Kong: The New Empire",
+        "time": "2:30pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Godzilla x Kong: The New Empire",
+        "time": "5:15pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Godzilla x Kong: The New Empire",
+        "time": "8:00pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Abigail",
+        "time": "2:00pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Abigail",
+        "time": "3:30pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Abigail",
+        "time": "4:30pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Abigail",
+        "time": "6:15pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Abigail",
+        "time": "7:00pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Abigail",
+        "time": "9:00pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Abigail",
+        "time": "9:30pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "The Ministry of Ungentlemanly Warfare",
+        "time": "6:10pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "The Ministry of Ungentlemanly Warfare",
+        "time": "3:15pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "The Ministry of Ungentlemanly Warfare",
+        "time": "9:00pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "A24 x IMAX Present: Hereditary",
+        "time": "7:00pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Unsung Hero: Early Access",
+        "time": "6:00pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Kung Fu Panda 4",
+        "time": "2:00pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Kung Fu Panda 4",
+        "time": "4:20pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Kung Fu Panda 4",
+        "time": "6:40pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Kung Fu Panda 4",
+        "time": "9:00pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Spy x Family Code: White",
+        "time": "3:15pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Spy x Family Code: White",
+        "time": "6:00pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Spy x Family Code: White",
+        "time": "8:45pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Ghostbusters: Frozen Empire",
+        "time": "3:00pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Ghostbusters: Frozen Empire",
+        "time": "6:00pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Ghostbusters: Frozen Empire",
+        "time": "9:00pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "The First Omen",
+        "time": "3:45pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "The First Omen",
+        "time": "6:30pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "The First Omen",
+        "time": "9:15pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Bob Marley: One Love",
+        "time": "7:00pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Dune: Part Two",
+        "time": "2:30pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Dune: Part Two",
+        "time": "6:00pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Dune: Part Two",
+        "time": "9:30pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Monkey Man",
+        "time": "3:15pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Monkey Man",
+        "time": "6:15pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Monkey Man",
+        "time": "9:15pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Sting",
+        "time": "5:05pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Sting",
+        "time": "9:30pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Sasquatch Sunset",
+        "time": "6:40pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Sasquatch Sunset",
+        "time": "2:00pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Sasquatch Sunset",
+        "time": "4:20pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Sasquatch Sunset",
+        "time": "9:00pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "The Long Game",
+        "time": "2:00pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "The Long Game",
+        "time": "4:35pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Shrek 2 - 20th Anniversary",
+        "time": "2:45pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Villains Inc",
+        "time": "2:00pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Villains Inc",
+        "time": "4:30pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Villains Inc",
+        "time": "7:00pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Villains Inc",
+        "time": "9:30pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Housekeeping For Beginners",
+        "time": "3:45pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Housekeeping For Beginners",
+        "time": "6:25pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Housekeeping For Beginners",
+        "time": "9:00pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Late Night with the Devil",
+        "time": "7:10pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Late Night with the Devil",
+        "time": "9:30pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Arthur the King",
+        "time": "2:00pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Arthur the King",
+        "time": "4:30pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Someone Like You",
+        "time": "2:00pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Someone Like You",
+        "time": "6:55pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Wicked Little Letters",
+        "time": "4:35pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    },
+    {
+        "movie": "Wicked Little Letters",
+        "time": "9:30pm",
+        "location": "kansas-city",
+        "theater": "amc-independence-commons-20"
+    }
+]
