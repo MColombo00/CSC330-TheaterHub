@@ -13,22 +13,29 @@ def job():
     options = Options()
     options.add_argument("-headless")
     driver = webdriver.Firefox(options=options)
+    movie_list = []
 
-    for x in f1:
-        url = str(f1.readline() + "/showtimes")
+    for x in range(5):
+    # for x in f1:
+        ourl = f1.readline().strip()
+        url = ourl + "/showtimes"
         # print(url)
         driver.get(url)
         print("Headless Firefox Initialized for URL: " + url)
         time.sleep(5)
-
+        location = url.strip('/').split('/')[-2]
+        theater = url.strip('/').split('/')[-3]
+        # print(location)
+        # print(theater)
         html = driver.page_source
         soup = BeautifulSoup(html, "html.parser")
         all_data = soup.find_all(['div'], class_='ShowtimesByTheatre-film')
-        location = url.strip().split("/")
 
-        movie_list = []
+        
         for x in all_data:
             # print(x)
+            # location = url.strip().split("/")
+            # print(location[4])
             showtimes = []
             title = ""
 
@@ -44,8 +51,8 @@ def job():
                 mov_dat = {
                     'movie': title,
                     'time': t,
-                    'location': location[4],
-                    'theater': location[5].strip("\n")
+                    'location': location,
+                    'theater': theater
                 }
                 movie_list.append(mov_dat)
 
@@ -54,7 +61,7 @@ def job():
     with open('MovieLocationScraper\Data Files\AMC\\amc-movies.json', 'w') as file:
         json.dump(movie_list, file, indent=4)
 
-    driver.close()
+    driver.quit()
 
 job()
 
