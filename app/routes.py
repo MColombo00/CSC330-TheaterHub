@@ -250,7 +250,11 @@ def delete_movie_handler():
     if movie:
         title = user[0]
         if title == inputted_title:
-        cursor.execute('DELETE FROM movies WHERE title=?', (inputted_title,))
-        conn.commit()
+            cursor.execute('DELETE FROM movies WHERE title=?', (inputted_title,))
+            conn.commit()
+            conn.close()
+            return redirect(url_for('landing_page'))
+    else:
         conn.close()
-        return redirect(url_for('landing_page'))
+        error_message = 'This movie is not in the database.'
+        return redirect(url_for('delete_movie', error_message))
