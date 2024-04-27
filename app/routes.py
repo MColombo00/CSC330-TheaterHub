@@ -210,13 +210,13 @@ def add_movie():
     return render_template('add_movie.html')
 
 @app.route('/add_movie_handler', methods=['POST'])
-def add_movie_handler():
+def input_movie():
     title = request.form.get('title')
     director = request.form.get('director')
     genre1 = request.form.get('genre1')
     genre2 = request.form.get('genre2')
 
-    conn = get_db_connection()
+    conn = sqlite3.connect('movies.db')
     cursor = conn.cursor()
 
     cursor.execute('SELECT * FROM movies WHERE title=?', (title,))
@@ -224,37 +224,43 @@ def add_movie_handler():
 
     if movie:
         conn.close()
-        error_message = 'A movie with this title already exists.'
+        error_message = 'This movie is already in the database.'
         return redirect(url_for('add_movie', error=error_message))
     else:
         cursor.execute('INSERT INTO movies (title, director, genre1, genre2) VALUES (?, ?, ?, ?)', (title, director, genre1, genre2))
         conn.commit()
 
         conn.close()
-        return redirect('/landing_page')
+        error_message = 'Movie added to the database.'
+        return redirect(url_for('add_movie', error=error_message))
         
 @app.route('/delete_movie')
 def delete_movie():
     return render_template('delete_movie.html')
 
-@app.route('/delete_movie_handler', methods['POST'])
-def delete_movie_handler():
+@app.route('/delete_movie_handler', methods=['POST'])
+def remove_movie():
     inputted_title = request.form.get('title')
+    inputted_director = request.form.get('director')
+    inputted_year = request.form.get('release_year')
 
-    conn = get_db_connection()
-    curosr = conn.cursor()
+    conn = sqlite3.connect('movies.db')
+    cursor = conn.cursor()
 
     cursor.execute('SELECT * FROM movies WHERE title=?', (inputted_title,))
     movie = cursor.fetchone()
 
     if movie:
-        title = user[0]
+        title = movie[0]
+        director = movie[1]
+        release_year = movie[2]
         if title == inputted_title:
-            cursor.execute('DELETE FROM movies WHERE title=?', (inputted_title,))
+            cursor.execute('DELETE FROM movies WHERE title=? AND director=? AND release_year=?', (inputted_title, director, inputted_year))
             conn.commit()
             conn.close()
-            return redirect(url_for('landing_page'))
+            error_message = 'Movie removed from database.'
+            return redirect(url_for('delete_movie', error=error_message))
     else:
         conn.close()
         error_message = 'This movie is not in the database.'
-        return redirect(url_for('delete_movie', error_message))
+        return redirect(url_for('delete_movie', error=error_message))
