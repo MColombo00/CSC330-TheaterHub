@@ -39,7 +39,8 @@ def log_in_page():
 
 @app.route('/admin_login')
 def admin_login_page():
-    return render_template('admin_login.html')
+    error_message = request.args.get('error')
+    return render_template('admin_login.html', error=error_message)
 
 @app.route('/register')
 def register_page():
@@ -109,6 +110,27 @@ def user_login():
     
     error_message = 'Incorrect E-mail or Password.'
     return redirect(url_for('log_in_page', error=error_message))
+
+@app.route('/admin_login_handler', methods=['POST'])
+def admin_login():
+    email = request.form.get('email')
+    inputted_password = request.form.get('password')
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    cursor.execute('SELECT * FROM admins WHERE email_address=?', (email,))
+    admin = cursor.fetchone()
+    if admin:
+        password = admin[1]
+        if password == inputted_password:
+            session['logged_in'] = True
+            session['email'] = email
+            session['password'] = password
+            return redirect(url_for('landing_page'))
+
+    error_message = 'Incorrect E-mail or Password.'
+    return redirect(url_for('admin_login_page', error=error_message))
 
 @app.route('/logout')
 def logout():
@@ -182,3 +204,53 @@ def delete_account():
             conn.commit()
             conn.close()
             return redirect(url_for('logout'))
+
+@app.route('/add_movie')
+def add_movie():
+    return render_template('add_movie.html')
+
+@app.route('/add_movie_handler', methods=['POST'])
+def add_movie_handler():
+    title = request.form.get('title')
+    director = request.form.get('director')
+    genre1 = request.form.get('genre1')
+    genre2 = request.form.get('genre2')
+
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    cursor.execute('SELECT * FROM movies WHERE title=?', (title,))
+    movie = cursor.fetchone()
+
+    if movie:
+        conn.close()
+        error_message = 'A movie with this title already exists.'
+        return redirect(url_for('add_movie', error=error_message))
+    else:
+        cursor.execute('INSERT INTO movies (title, director, genre1, genre2) VALUES (?, ?, ?, ?)', (title, director, genre1, genre2))
+        conn.commit()
+
+        conn.close()
+        return redirect('/landing_page')
+        
+@app.route('/delete_movie')
+def delete_movie():
+    return render_template('delete_movie.html')
+
+@app.route('/delete_movie_handler', methods['POST'])
+def delete_movie_handler():
+    inputted_title = request.form.get('title')
+
+    conn = get_db_connection()
+    curosr = conn.cursor()
+
+    cursor.execute('SELECT * FROM movies WHERE title=?', (inputted_title,))
+    movie = cursor.fetchone()
+
+    if movie:
+        title = user[0]
+        if title == inputted_title:
+        cursor.execute('DELETE FROM movies WHERE title=?', (inputted_title,))
+        conn.commit()
+        conn.close()
+        return redirect(url_for('landing_page'))
