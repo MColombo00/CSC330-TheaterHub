@@ -213,6 +213,7 @@ def add_movie():
 def input_movie():
     title = request.form.get('title')
     director = request.form.get('director')
+    release_year = request.form.get('release_year')
     genre1 = request.form.get('genre1')
     genre2 = request.form.get('genre2')
 
@@ -227,7 +228,7 @@ def input_movie():
         error_message = 'This movie is already in the database.'
         return redirect(url_for('add_movie', error=error_message))
     else:
-        cursor.execute('INSERT INTO movies (title, director, genre1, genre2) VALUES (?, ?, ?, ?)', (title, director, genre1, genre2))
+        cursor.execute('INSERT INTO movies (title, director, release_year,  genre1, genre2) VALUES (?, ?, ?, ?, ?)', (title, director, release_year, genre1, genre2))
         conn.commit()
 
         conn.close()
