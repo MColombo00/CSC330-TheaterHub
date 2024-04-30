@@ -25,8 +25,40 @@ def cart_page():
     return render_template('cart.html')
 
 @app.route('/profile')
-def profile_page():
-    return render_template('profile.html')
+def profile():
+    if 'email' in session:  # Assuming the email is stored in the session
+        email = session['email']
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute('SELECT genre FROM user_genres WHERE email_address=?', (email,))
+        genres = [row[0] for row in cursor.fetchall()]
+        conn.close()
+        return render_template('profile.html', genres=genres)
+    else:
+        return redirect('/log_in')
+
+@app.route('/change_genres')
+def change_genres():
+    return render_template('change_genres.html')
+
+@app.route('/update_genres', methods=['POST'])
+def update_genres():
+    if 'email' in session:  # Assuming the email is stored in the session
+        email = session['email']
+        selected_genres = request.form.getlist('genres')
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        # Delete existing genres for the user
+        cursor.execute('DELETE FROM user_genres WHERE email_address=?', (email,))
+        # Insert selected genres into user_genres table
+        for genre in selected_genres:
+            cursor.execute('INSERT INTO user_genres (email_address, genre) VALUES (?, ?)', (email, genre))
+        conn.commit()
+        conn.close()
+        # Redirect the user back to the profile page
+        return redirect('/profile')
+    else:
+        return redirect('/log_in')
 
 @app.route('/contact_us')
 def contact_us_page():
@@ -68,6 +100,7 @@ def register_handler():
     email = request.form.get('email')
     password = request.form.get('password')
     confirm_password = request.form.get('confirm_password')
+    genres = request.form.getlist('genre')  # Retrieve selected genres as a list
 
     if password != confirm_password:
         error_message = 'Passwords do not match'
@@ -86,7 +119,16 @@ def register_handler():
     else:
         cursor.execute('INSERT INTO users (email_address, password) VALUES (?, ?)', (email, password))
         conn.commit()
+        
+        # Retrieve the user_id of the newly inserted user
+        cursor.execute('SELECT email_address FROM users WHERE email_address=?', (email,))
+        email_address = cursor.fetchone()[0]  # Get the email_address of the newly inserted user
 
+        # Insert selected genres into user_genres table
+        for genre in genres:
+            cursor.execute('INSERT INTO user_genres (email_address, genre) VALUES (?, ?)', (email_address, genre))
+
+        conn.commit()
         conn.close()
         return redirect('/log_in')
 

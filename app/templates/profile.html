@@ -6,12 +6,21 @@
             <h1 class="section-title">Profile</h1>
             <div class="profile-info" style="margin-left:20px;">
                 <h2 style="font-weight: normal;">
-                    <p><span style="background-color: #f2f2f2; color: #666; display: inline-block; padding: 5px 10px;">Email:{{ session.email }}</span> </p>
-                    <p><span style="background-color: #f2f2f2; color: #666; display: inline-block; padding: 5px 10px;">Password: {{ session.password }}</span></p>
+                    <p><span style="background-color: #f2f2f2; color: #666; display: inline-block; padding: 5px 10px;">Email:{{ session.email }}</span></p>
+                    <!-- Display password with asterisks -->
+                    <p>Password: {{ '*' * session.password|length }}</p>
                     <div class="button-container">
-                    <a href="change_email"><button type="button">Change Email</button></a>
-                    <a href="update_password"><button type="button">Update Password</button></a>
-                    <a href="delete_account"><button type="button">Delete Account</button></a>
+                        <a href="change_email"><button type="button">Change Email</button></a>
+                        <a href="update_password"><button type="button">Update Password</button></a>
+                        <a href="delete_account"><button type="button">Delete Account</button></a>
+                        <a href="change_genres"><button type="button">Change Genres</button></a>
+                    </div>
+                    <h3>Favorite Genres:</h3>
+                    <ul>
+                        {% for genre in genres %}
+                            <li>{{ genre }}</li>
+                        {% endfor %}
+                    </ul>
                 </h2>
             </div>
         </div>

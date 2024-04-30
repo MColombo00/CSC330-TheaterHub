@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}TheaterHub - Change Genres{% endblock %}
+{% block content %}
+    <h1>Change Genres</h1>
+    <form action="/update_genres" method="post">
+        <label for="genres">Select your favorite genres:</label><br>
+        <input type="checkbox" id="action" name="genres" value="action">
+        <label for="action">Action</label><br>
+        <input type="checkbox" id="drama" name="genres" value="drama">
+        <label for="drama">Drama</label><br>
+        <input type="checkbox" id="comedy" name="genres" value="comedy">
+        <label for="comedy">Comedy</label><br><br>
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}
