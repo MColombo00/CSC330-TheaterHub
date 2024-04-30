@@ -10,7 +10,7 @@ from flask import session
 api_key = 'eb6763dcd081514c5d528c58c863dd95'
 
 # Load the JSON data once when the application starts
-with open('amc-movies.json', 'r') as file:
+with open('MovieLocationScraper/Data Files/AMC/amc-movies.json', 'r') as file:
     movie_data = json.load(file)
 
 def get_db_connection():
