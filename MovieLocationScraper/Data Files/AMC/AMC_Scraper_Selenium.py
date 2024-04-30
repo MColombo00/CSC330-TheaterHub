@@ -15,13 +15,13 @@ def job():
     driver = webdriver.Firefox(options=options)
     movie_list = []
 
-    for x in range(5):
+    for x in range(557):
         ourl = f1.readline().strip()
         url = ourl + "/showtimes"
         # print(url)
         driver.get(url)
         print("Headless Firefox Initialized for URL: " + url)
-        time.sleep(5)
+        time.sleep(3)
         location = url.strip('/').split('/')[-2]
         theater = url.strip('/').split('/')[-3]
         html = driver.page_source
@@ -59,8 +59,8 @@ def job():
 
 job()
 
-schedule.every().day.at("00:00").do(job)
+# schedule.every().day.at("00:00").do(job)
 
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+# while True:
+#     schedule.run_pending()
+#     time.sleep(1)
