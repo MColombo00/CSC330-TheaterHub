@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block title %}TheaterHub - Buy Tickets{% endblock %}
 {% block content %}
-    <span class="title">Buy Tickets Implementation Here</span>
+    <span class="title">Movie Look-Up</span>
+    <form action="{{ url_for('search_movie') }}" method="GET">
+        <input type="text" name="query" placeholder="Search for a movie">
+        <button type="submit">Search</button>
+    </form>
 {% endblock %}
-

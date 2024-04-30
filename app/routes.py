@@ -4,9 +4,14 @@ from app.forms import AddForm, DeleteForm, SearchForm
 from app import db
 import sys
 import sqlite3
+import json
 from flask import session
 
 api_key = 'eb6763dcd081514c5d528c58c863dd95'
+
+# Load the JSON data once when the application starts
+with open('amc-movies.json', 'r') as file:
+    movie_data = json.load(file)
 
 def get_db_connection():
     conn = sqlite3.connect('profiles.db')
@@ -20,9 +25,39 @@ def landing_page():
 def buy_tickets_page():
     return render_template('buy_tickets.html')
 
+@app.route('/search_movie', methods=['GET'])
+def search_movie():
+    query = request.args.get('query')
+    if query:
+        results = [movie for movie in movie_data if query.lower() in movie['movie'].lower()]
+        return render_template('search_results.html', query=query, results=results)
+    else:
+        return render_template('search_results.html', query=query, results=[])
+
 @app.route('/cart')
-def cart_page():
-    return render_template('cart.html')
+def cart():
+    movie = request.args.get('movie')
+    time = request.args.get('time')
+    location = request.args.get('location')
+    theater = request.args.get('theater')
+
+    # Store data in session
+    session['movie'] = movie
+    session['time'] = time
+    session['location'] = location
+    session['theater'] = theater
+
+    return render_template('cart.html', movie=movie, time=time, location=location, theater=theater)
+
+@app.route('/order_success', methods=['POST'])
+def order_success():
+    # Retrieve data from session
+    movie = session.get('movie')
+    time = session.get('time')
+    location = session.get('location')
+    theater = session.get('theater')
+
+    return render_template('order_success.html', movie=movie, time=time, location=location, theater=theater)
 
 @app.route('/profile')
 def profile():

@@ -1,5 +1,27 @@
 {% extends "base.html" %}
-{% block title %}TheaterHub - Cart{% endblock %}
+{% block title %}TheaterHub - Ticket Cart{% endblock %}
 {% block content %}
-    <span class="title">Cart Implementation Here</span>
+    <h1>Cart</h1>
+    {% if movie %}
+        <div>
+            <strong>Movie:</strong> {{ movie }} <br>
+            <strong>Time:</strong> {{ time }} <br>
+            <strong>Location:</strong> {{ location }} <br>
+            <strong>Theater:</strong> {{ theater }}
+        </div>
+        <form action="/order_success" method="post">
+            <label for="tickets">Number of Tickets:</label>
+            <input type="number" id="tickets" name="tickets" required><br>
+            <label for="credit_card">Credit Card Number:</label>
+            <input type="text" id="credit_card" name="credit_card" required><br>
+            <label for="csv">CSV:</label>
+            <input type="text" id="csv" name="csv" required><br>
+            <label for="expiration_date">Expiration Date:</label>
+            <input type="text" id="expiration_date" name="expiration_date" required><br>
+            <button type="submit">Order Now</button>
+        </form>
+    {% else %}
+        <p>No Tickets Available</p>
+        <a href="/buy_tickets">Order Here</a>
+    {% endif %}
 {% endblock %}

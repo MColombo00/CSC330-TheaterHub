@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}TheaterHub - Buy Tickets{% endblock %}
+{% block content %}
+    <h1>Search Results</h1>
+    <p>Search Query: {{ query }}</p>
+    <div class="result-container">
+        {% for result in results %}
+            <a href="/cart?movie={{ result['movie'] }}&time={{ result['time'] }}&location={{ result['location'] }}&theater={{ result['theater'] }}">
+                <div class="result-box">
+                    <strong>Movie:</strong> {{ result['movie'] }} <br>
+                    <strong>Time:</strong> {{ result['time'] }} <br>
+                    <strong>Location:</strong> {{ result['location'] }} <br>
+                    <strong>Theater:</strong> {{ result['theater'] }}
+                </div>
+            </a>
+        {% endfor %}
+{% endblock %}
