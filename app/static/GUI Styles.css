@@ -169,6 +169,13 @@ body {
             margin: 5px;
             cursor: pointer;
         }
+/* For cart */
+
+.center-content {
+    text-align: center;
+    margin: 0 auto;
+    width: 50%; /* Adjust this value to control the width of the centered content */
+}
 
 /* Order success page */
         .success-message {

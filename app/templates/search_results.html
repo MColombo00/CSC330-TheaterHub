@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block title %}TheaterHub - Buy Tickets{% endblock %}
 {% block content %}
-    <h1>Search Results</h1>
-    <p>Search Query: {{ query }}</p>
+    <span class="title">Search Results</span>
+    <span class="title" style="font-size:24px; margin-bottom:10px;">Search Query: {{ query }}</span>
     <div class="result-container">
         {% for result in results %}
             <a href="/cart?movie={{ result['movie'] }}&time={{ result['time'] }}&location={{ result['location'] }}&theater={{ result['theater'] }}">

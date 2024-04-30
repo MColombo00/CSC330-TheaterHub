@@ -1,9 +1,12 @@
 {% extends "base.html" %}
 {% block title %}TheaterHub - Buy Tickets{% endblock %}
 {% block content %}
-    <span class="title">Movie Look-Up</span>
-    <form action="{{ url_for('search_movie') }}" method="GET">
-        <input type="text" name="query" placeholder="Search for a movie">
-        <button type="submit">Search</button>
-    </form>
+    <div style="text-align: center; margin: 30px auto 0;">
+        <span class="title">Movie Look-Up</span>
+        <br>
+        <form action="{{ url_for('search_movie') }}" method="GET" style="display: inline-block;">
+            <input type="text" name="query" placeholder="Search for a movie" style="margin-right: 5px; margin-top: 20px; margin-left: 30px; font-size: 1.3em;">
+            <button type="submit" style="font-size: 1.3em;">Search</button>
+        </form>
+    </div>
 {% endblock %}
