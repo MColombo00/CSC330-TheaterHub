@@ -18,13 +18,42 @@
     </div>
     <div class="form-group">
       <label for="genres">Movie Genres:</label><br>
-      <input type="checkbox" id="action" name="genre" value="action">
-      <label for="action"> Action</label><br>
-      <input type="checkbox" id="comedy" name="genre" value="comedy">
-      <label for="comedy"> Comedy</label><br>
-      <input type="checkbox" id="drama" name="genre" value="drama">
-      <label for="drama"> Drama</label><br>
-      <!-- Add more checkboxes for other genres as needed -->
+      <div class="checkbox-group">
+        <input type="checkbox" id="action" name="genre" value="action">
+        <label for="action"> Action</label>
+      </div>
+      <div class="checkbox-group">
+        <input type="checkbox" id="comedy" name="genre" value="comedy">
+        <label for="comedy"> Comedy</label>
+      </div>
+      <div class="checkbox-group">
+        <input type="checkbox" id="drama" name="genre" value="drama">
+        <label for="drama"> Drama</label>
+      </div>
+      <div class="checkbox-group">
+        <input type="checkbox" id="horror" name="genre" value="horror">
+        <label for="horror"> Horror</label>
+      </div>
+      <div class="checkbox-group">
+        <input type="checkbox" id="romance" name="genre" value="romance">
+        <label for="romance"> Romance</label>
+      </div>
+      <div class="checkbox-group">
+        <input type="checkbox" id="fantasy" name="genre" value="fantasy">
+        <label for="fantasy"> Fantasy</label>
+      </div>
+      <div class="checkbox-group">
+        <input type="checkbox" id="science fiction" name="genre" value="science fiction">
+        <label for="science fiction"> Science Fiction</label>
+      </div>
+      <div class="checkbox-group">
+        <input type="checkbox" id="adventure" name="genre" value="adventure">
+        <label for="adventure"> Adventure</label>
+      </div>
+      <div class="checkbox-group">
+        <input type="checkbox" id="western" name="genre" value="western">
+        <label for="western"> Western</label>
+      </div>
     </div>
     <div class="button-container">
       <button type="submit">Register</button>
@@ -36,4 +65,10 @@
     {{ error }}
   {% endif %}
 </div>
+<style>
+  .checkbox-group {
+    display: inline-block;
+    margin-right: 10px;
+  }
+</style>
 {% endblock %}
