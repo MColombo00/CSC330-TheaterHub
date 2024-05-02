@@ -7,8 +7,9 @@
 </head>
 <body>
            <div class="content">
-              <div class="upper-banner-background"></div> 
-              <a href="/admin_login" class="admin-login">Admin? Log in here</a>
+              <div class="upper-banner-background"></div>
+              <a class="admin-login" href="{% if session.admin_logged_in %}/admin_logout{% else %}/admin_login{% endif %}">
+               {% if session.admin_logged_in %}Log Out{% else %}Admin? Log in here{% endif %}</a>
               <div class="logo-container">
                  <a href="/">
                  <div class="logo" id="logo">

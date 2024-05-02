@@ -201,7 +201,7 @@ def admin_login():
     if admin:
         password = admin[1]
         if password == inputted_password:
-            session['logged_in'] = True
+            session['admin_logged_in'] = True
             session['email'] = email
             session['password'] = password
             return redirect(url_for('landing_page'))
@@ -212,6 +212,11 @@ def admin_login():
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
+    return redirect(url_for('landing_page'))
+
+@app.route('/admin_logout')
+def admin_logout():
+    session.pop('admin_logged_in', None)
     return redirect(url_for('landing_page'))
 
 @app.route('/change_email_handler', methods=['POST'])
