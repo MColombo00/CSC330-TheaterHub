@@ -5,9 +5,9 @@
     <title>{% block title %}TheaterHub{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='GUI Styles.css') }}">
 </head>
-<body>
+<body style="background-image: url(../static/curtains.jpg); background-size: cover; background-repeat: no-repeat;">
            <div class="content">
-              <div class="upper-banner-background"></div>
+              <div class="upper-banner-background" style="background-image: url(../static/popcorn.jpg);"></div>
               <a class="admin-login" href="{% if session.admin_logged_in %}/admin_logout{% else %}/admin_login{% endif %}">
                {% if session.admin_logged_in %}Log Out{% else %}Admin? Log in here{% endif %}</a>
               <div class="logo-container">
