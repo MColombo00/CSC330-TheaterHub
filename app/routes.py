@@ -289,7 +289,8 @@ def delete_account():
 
 @app.route('/add_movie')
 def add_movie():
-    return render_template('add_movie.html')
+    error_message = request.args.get('error')
+    return render_template('add_movie.html', error=error_message)
 
 @app.route('/add_movie_handler', methods=['POST'])
 def input_movie():
@@ -316,10 +317,11 @@ def input_movie():
         conn.close()
         error_message = 'Movie added to the database.'
         return redirect(url_for('add_movie', error=error_message))
-        
+    
 @app.route('/delete_movie')
 def delete_movie():
-    return render_template('delete_movie.html')
+    error_message = request.args.get('error')
+    return render_template('delete_movie.html', error=error_message)
 
 @app.route('/delete_movie_handler', methods=['POST'])
 def remove_movie():
@@ -337,11 +339,15 @@ def remove_movie():
         title = movie[0]
         director = movie[1]
         release_year = movie[2]
-        if title == inputted_title:
-            cursor.execute('DELETE FROM movies WHERE title=? AND director=? AND release_year=?', (inputted_title, director, inputted_year))
+        if title == inputted_title and director == inputted_director and release_year == inputted_year:
+            cursor.execute('DELETE FROM movies WHERE title=? AND director=? AND release_year=?', (inputted_title, inputted_director, inputted_year))
             conn.commit()
             conn.close()
             error_message = 'Movie removed from database.'
+            return redirect(url_for('delete_movie', error=error_message))
+        else:
+            conn.close()
+            error_message = 'This movie is not in the database.'
             return redirect(url_for('delete_movie', error=error_message))
     else:
         conn.close()
