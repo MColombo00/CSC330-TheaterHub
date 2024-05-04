@@ -23,7 +23,6 @@ body {
     height: 1030px;
     width: 1200px;
     background-color: #ffffff;
-    border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: relative;
     display: flex;
@@ -174,7 +173,7 @@ body {
 .center-content {
     text-align: center;
     margin: 0 auto;
-    width: 50%; /* Adjust this value to control the width of the centered content */
+    width: 50%; 
 }
 
 /* Order success page */
