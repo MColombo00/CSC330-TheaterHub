@@ -5,19 +5,16 @@
     <title>{% block title %}TheaterHub{% endblock %}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='GUI Styles.css') }}">
-    <style>
-        .tabs-background {
-            background-color: white;
-            border-radius: 5px; /* optional border radius */
-            margin-top: 203px; /* Adjust the value to move the tabs down */
-        }
-    </style>
 </head>
 <body style="background-image: url(../static/curtains.jpg); background-size: cover; background-repeat: no-repeat;">
+        <div class="curtains-overlay"></div>
     <div class="content">
-        <div class="upper-banner-background" style="background-image: url(../static/popcorn.jpg);"></div>
-        <a class="admin-login" href="{% if session.admin_logged_in %}/admin_logout{% else %}/admin_login{% endif %}">
-            {% if session.admin_logged_in %}Log Out{% else %}Admin? Log in here{% endif %}</a>
+        <div class="upper-banner-background" style="background-image: url(../static/popcorn.jpg); filter: brightness(70%);"></div>
+
+       <a class="admin-login" href="{% if session.admin_logged_in %}/admin_logout{% else %}/admin_login{% endif %}">
+    {% if session.admin_logged_in %}Log Out{% else %}<span style="color: yellow;">Admin? Log in here</span>{% endif %}
+</a>
+
         <div class="logo-container">
             <a href="/">
                 <div class="logo" id="logo">
