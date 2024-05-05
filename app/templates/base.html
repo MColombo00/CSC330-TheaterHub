@@ -11,7 +11,7 @@
     <div class="content">
         <div class="upper-banner-background" style="background-image: url(../static/popcorn.jpg); filter: brightness(70%);"></div>
 
-       <a class="admin-login" href="{% if session.admin_logged_in %}/admin_logout{% else %}/admin_login{% endif %}">
+       <a class="admin-login" href="{% if session.admin_logged_in %}/admin_logout{% else %}/admin_login{% endif %}"  style="color: yellow;">
     {% if session.admin_logged_in %}Log Out{% else %}<span style="color: yellow;">Admin? Log in here</span>{% endif %}
 </a>
 
