@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% block title %}TheaterHub - Register{% endblock %}
 {% block content %}
-<div class="form-container">
+<div class="form-container" style="background-color: #333; border-radius: 10px; margin: 30px auto; width: 40%; padding-bottom: 30px; box-shadow: 0 0 10px black;">
   <div class="title" style="margin-left:0px;">Register</div>
   <form id="registration-form" action="/register_handler" method="POST"> 
+    <div class="column1" style="flex: 1;">
     <div class="form-group">
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" required>
@@ -16,47 +17,40 @@
       <label for="confirm_password">Confirm Password:</label>
       <input type="password" id="confirm_password" name="confirm_password" required>
     </div>
-    <div class="form-group">
-      <label for="genres">Movie Genres:</label><br>
-      <div class="checkbox-group">
-        <input type="checkbox" id="action" name="genre" value="action">
-        <label for="action"> Action</label>
-      </div>
-      <div class="checkbox-group">
-        <input type="checkbox" id="comedy" name="genre" value="comedy">
-        <label for="comedy"> Comedy</label>
-      </div>
-      <div class="checkbox-group">
-        <input type="checkbox" id="drama" name="genre" value="drama">
-        <label for="drama"> Drama</label>
-      </div>
-      <div class="checkbox-group">
-        <input type="checkbox" id="horror" name="genre" value="horror">
-        <label for="horror"> Horror</label>
-      </div>
-      <div class="checkbox-group">
-        <input type="checkbox" id="romance" name="genre" value="romance">
-        <label for="romance"> Romance</label>
-      </div>
-      <div class="checkbox-group">
-        <input type="checkbox" id="fantasy" name="genre" value="fantasy">
-        <label for="fantasy"> Fantasy</label>
-      </div>
-      <div class="checkbox-group">
-        <input type="checkbox" id="science fiction" name="genre" value="science fiction">
-        <label for="science fiction"> Science Fiction</label>
-      </div>
-      <div class="checkbox-group">
-        <input type="checkbox" id="adventure" name="genre" value="adventure">
-        <label for="adventure"> Adventure</label>
-      </div>
-      <div class="checkbox-group">
-        <input type="checkbox" id="western" name="genre" value="western">
-        <label for="western"> Western</label>
-      </div>
     </div>
+    <div class="column2" style="flex: 1;">
+      <label for="genres">Favorite Movie Genres:</label>
+      <ul class="list-group" style="color:black;">
+        <li class="list-group-item">
+          <input class="form-check-input me-1" type="checkbox" id="action" name="genre" value="action">
+          <label class="form-check-label" for="action">Action</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input me-1" type="checkbox" id="comedy" name="genre" value="comedy">
+          <label class="form-check-label" for="comedy">Comedy</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input me-1" type="checkbox" id="drama" name="genre" value="drama">
+          <label class="form-check-label" for="drama">Drama</label>
+        </li>
+
+        <li class="list-group-item">
+          <input class="form-check-input me-1" type="checkbox" id="horror" name="genre" value="horror">
+          <label class="form-check-label" for="horror">Horror</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input me-1" type="checkbox" id="romance" name="genre" value="romance">
+          <label class="form-check-label" for="romance">Romance</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input me-1" type="checkbox" id="fantasy" name="genre" value="fantasy">
+          <label class="form-check-label" for="fantasy">Fantasy</label>
+        </li>
+
+      </ul>
     <div class="button-container">
-      <button type="submit">Register</button>
+      <button type="submit" class="btn btn-primary" style="background-color:#999;border:solid black 1px; margin-top: 20px; color:black;">Register</button>
+    </div>
     </div>
   </form>
 </div>
@@ -65,10 +59,4 @@
     {{ error }}
   {% endif %}
 </div>
-<style>
-  .checkbox-group {
-    display: inline-block;
-    margin-right: 10px;
-  }
-</style>
 {% endblock %}

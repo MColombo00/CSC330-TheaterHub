@@ -1,3 +1,8 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -22,7 +27,6 @@ body {
     position: fixed;
     bottom: 0;
 }
-
 
 .content {
   height: 1030px;
@@ -148,6 +152,17 @@ body {
 .error-message-container {
   overflow: hidden;
 }
+/* For registration */
+.form-check-label {
+	margin-left:20px;
+}
+.form-check-input {
+	margin-left:0px;
+}
+.list-group-item {
+	background-color:#CCC;	
+}
+
 /* For the landing page */
 .recommended {
     margin-top: 5px;
@@ -184,6 +199,7 @@ body {
             margin: 5px;
             cursor: pointer;
         }
+
 /* For cart */
 
 .center-content {
