@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}TheaterHub - Change Email{% endblock %}
 {% block content %}
-    <div class="form-container">
+    <div class="form-container" style="background-color: #333; border-radius: 10px; margin: 30px auto; width: 30%; padding-bottom: 30px;">
       <div class="title" style="margin-left:0px;">Change Email</div>
       <form action="/change_email_handler" method="POST"> 
         <div class="form-group">
@@ -13,7 +13,8 @@
           <input type="email" id="new_email" name="new_email" required>
         </div>
         <div class="button-container">
-          <button type="submit">Update</button>
+          <button type="submit" class="btn btn-secondary btn-lg">Update</button>
+	<a href="profile"><button type="button" class="btn btn-secondary btn-lg">Return to Profile</button></a>
     <div id="error-message" style="color: red; margin-top: 15px;">
       {% if error %}
         {{ error }}
