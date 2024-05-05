@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}TheaterHub - Delete Movie{% endblock %}
 {% block content %}
-<div class="form-container">
+<div class="form-container" style="background-color: #333; border-radius: 10px; margin: 30px auto; width: 40%; padding-bottom:20px;">
   <div class="title" style="margin-left:0px;">Delete Movie</div>
   <form id="delete-movie-form" action="/delete_movie_handler" method="POST"> 
     <div class="form-group">
@@ -17,7 +17,9 @@
         <input type="release_year" id="release_year" name="release_year" required>
     </div>
     <div class="button-container">
-      <button type="submit">Delete Movie</button>
+      <button type="submit"  class="btn btn-secondary btn-lg">Delete Movie</button>
+      <a href="profile"><button type="button" class="btn btn-secondary btn-lg">Return to Profile</button></a>
+
     </div>
   </form>
 </div>

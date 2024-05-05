@@ -2,22 +2,21 @@
 {% block title %}TheaterHub - Profile{% endblock %}
 {% block content %}
     {% if session.admin_logged_in %}
-    <div class="profile" style="margin-left:20px;">
-        <h1 class="section-title">Admin Profile</h1>
+    <div class="profile" style="margin-left:20px; background-color: #333; border-radius: 10px; margin: 30px auto; width: 40%; padding-bottom:25px;">
+        <h1 class="section-title" style="margin-left:20px; margin-top:20px;">Admin Profile</h1>
         <div class="profile-info" style="margin-left:20px;">
             <h2 style="font-weight: normal;">
-                <p><span style="background-color: #f2f2f2; color: #666; display: inline-block; padding: 5px 10px;">Email:{{ session.email }}</span></p>
-                <!-- Display password with asterisks -->
-                <p>Password: {{ '*' * session.password|length }}</p>
+                <p><span style="background-color: #f2f2f2; color: #666; display: inline-block; padding: 5px 10px; border-radius:5px; width:95%;">Email: {{ session.email }}</span></p>
+                        <p><span style="background-color: #f2f2f2; color: #666; display: inline-block; padding: 5px 10px; border-radius:5px; width:95%;">Password: {{ '*' * session.password|length }}</span></p>
                 <div class="button-container">
-                    <a href="change_email"><button type="button">Change Email</button></a>
-                    <a href="update_password"><button type="button">Update Password</button></a>
-                    <a href="delete_account"><button type="button">Delete Account</button></a>
+                    <a href="change_email"><button type="button" class="btn btn-secondary btn-lg" style="margin-top:10px;">Change Email</button></a>
+                            <a href="update_password"><button type="button" class="btn btn-secondary btn-lg"style="margin-top:10px;">Update Password</button></a>
+                            <a href="delete_account"><button type="button" class="btn btn-secondary btn-lg"style="margin-top:20px;">Delete Account</button></a>
                 </div>
-                <h3 style="margin-top: 50px;">Admin Tools</h3>
+                <h1 style="margin-top: 25px;">Admin Tools</h1>
                 <div class="button-container" style="margin-left: -170px;">
-                    <a href="add_movie"><button type="button">Add Movie</button></a>
-                    <a href="delete_movie"><button type="button">Delete Movie</button></a>
+                    <a href="add_movie"><button type="button" class="btn btn-secondary btn-lg">Add Movie</button></a>
+                    <a href="delete_movie"><button type="button" class="btn btn-secondary btn-lg">Delete Movie</button></a>
                 </div>
             </h2>
         </div>
@@ -29,7 +28,6 @@
                 <div class="profile-info" style="margin-left:20px;">
                     <h2 style="font-weight: normal;">
                         <p><span style="background-color: #f2f2f2; color: #666; display: inline-block; padding: 5px 10px; border-radius:5px; width:95%;">Email: {{ session.email }}</span></p>
-                        <!-- Display password with asterisks -->
                         <p><span style="background-color: #f2f2f2; color: #666; display: inline-block; padding: 5px 10px; border-radius:5px; width:95%;">Password: {{ '*' * session.password|length }}</span></p>
                         <h1>Favorite Genres:</h1>
                         <ul class="list-group" style="padding-bottom:10px;">
