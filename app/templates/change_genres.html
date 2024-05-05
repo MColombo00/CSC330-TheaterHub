@@ -1,27 +1,25 @@
 {% extends "base.html" %}
 {% block title %}TheaterHub - Change Genres{% endblock %}
 {% block content %}
+<div style="background-color: #333; border-radius: 10px; margin: 30px auto; width: 40%; padding-bottom: 30px;">
     <h1>Change Genres</h1>
     <form action="/update_genres" method="post">
         <label for="genres">Select your favorite genres:</label><br>
-        <input type="checkbox" id="action" name="genres" value="action">
-        <label for="action">Action</label><br>
-        <input type="checkbox" id="drama" name="genres" value="drama">
-        <label for="drama">Drama</label><br>
-        <input type="checkbox" id="comedy" name="genres" value="comedy">
-        <label for="comedy">Comedy</label><br>
-        <input type="checkbox" id="horror" name="genres" value="horror">
-        <label for="horror"> Horror</label><br>
-        <input type="checkbox" id="romance" name="genres" value="romance">
-        <label for="romance"> Romance</label><br>
-        <input type="checkbox" id="fantasy" name="genres" value="fantasy">
-        <label for="fantasy"> Fantasy</label><br>
-        <input type="checkbox" id="science fiction" name="genres" value="science fiction">
-        <label for="science fiction"> Science Fiction</label><br>
-        <input type="checkbox" id="adventure" name="genres" value="adventure">
-        <label for="adventure"> Adventure</label><br>
-        <input type="checkbox" id="western" name="genres" value="western">
-        <label for="western"> Western</label><br>
-        <input type="submit" value="Submit">
+        <input type="checkbox" id="Action" name="genres" value="Action">
+        <label for="Action">Action</label><br>
+        <input type="checkbox" id="Drama" name="genres" value="Drama">
+        <label for="Drama">Drama</label><br>
+        <input type="checkbox" id="Comedy" name="genres" value="Comedy">
+        <label for="Comedy">Comedy</label><br>
+        <input type="checkbox" id="Horror" name="genres" value="Horror">
+        <label for="Horror">Horror</label><br>
+        <input type="checkbox" id="Romance" name="genres" value="Romance">
+        <label for="Romance">Romance</label><br>
+        <input type="checkbox" id="Fantasy" name="genres" value="Fantasy">
+        <label for="Fantasy">Fantasy</label><br>
+        
+        <!-- Button to submit form -->
+        <button type="submit">Submit</button>
     </form>
+</div>
 {% endblock %}

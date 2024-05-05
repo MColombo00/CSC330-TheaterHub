@@ -102,8 +102,6 @@ body {
     display: flex;
 }
 
-
-
 .title {
   text-align: center; 
   width: 90%; 
@@ -166,34 +164,35 @@ body {
 /* For the landing page */
 .custom-prev,
 .custom-next {
-  font-size: 12px; /* Adjust button font size */
-  width: auto; /* Adjust button width */
-  height: auto; /* Adjust button height */
-  margin-top:275px; /* Position buttons vertically */
-  transform: translateY(-50%); /* Center buttons vertically */
-  background-color: transparent; /* Make buttons transparent */
-  border: none; /* Remove button border */
-  outline: none; /* Remove button outline */
+  font-size: 12px; 
+  width: auto;
+  height: auto; 
+  margin-top:275px; 
+  transform: translateY(-50%); 
+  background-color: transparent; 
+  border: none;
+  outline: none; 
 }
 
 .custom-prev {
-  left: -80px; /* Position previous button to the left of the image */
+  left: -80px;
 }
 
 .custom-next {
-  right: -60px; /* Position next button to the right of the image */
+  right: -60px;
 }
+
 /* For search results page */
-        .result-container {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        .result-box {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 5px;
-            cursor: pointer;
-        }
+.result-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.result-box {
+   border: 1px solid #ccc;
+   padding: 10px;
+   margin: 5px;
+   cursor: pointer;
+}
 
 /* For cart */
 
@@ -204,11 +203,11 @@ body {
 }
 
 /* Order success page */
-        .success-message {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .order-details {
-            font-size: 18px;
-        }
+.success-message {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.order-details {
+    font-size: 18px;
+}
