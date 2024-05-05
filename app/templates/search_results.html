@@ -3,10 +3,10 @@
 {% block content %}
     <span class="title">Search Results</span>
     <span class="title" style="font-size:24px; margin-bottom:10px;">Search Query: {{ query }}</span>
-    <div class="result-container">
+    <div class="result-container" style="overflow: auto; max-height: 1080px; padding-left: 30px;">
         {% for result in results %}
             <a href="/cart?movie={{ result['movie'] }}&time={{ result['time'] }}&location={{ result['location'] }}&theater={{ result['theater'] }}">
-                <div class="result-box">
+                <div class="result-box" style="color:yellow; background-color:#333;">
                     <strong>Movie:</strong> {{ result['movie'] }} <br>
                     <strong>Time:</strong> {{ result['time'] }} <br>
                     <strong>Location:</strong> {{ result['location'] }} <br>
@@ -14,4 +14,5 @@
                 </div>
             </a>
         {% endfor %}
+    </div>
 {% endblock %}

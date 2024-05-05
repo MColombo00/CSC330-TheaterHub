@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}TheaterHub - Ticket Cart{% endblock %}
 {% block content %}
-    <div style="background-color: #333; border-radius: 10px; margin: 30px auto; width: 40%;">
+    <div style="background-color: #333; border-radius: 10px; margin: 30px auto; width: 50%; padding-bottom:30px;">
         <span style="font-size: 32px; display: block; text-align: center;">Cart</span>
         <div class="center-content">
             {% if movie %}
@@ -11,20 +11,28 @@
                     <strong>Location:</strong> {{ location }} <br>
                     <strong>Theater:</strong> {{ theater }} <br>
                 </div>
-                <form action="/order_success" method="post">
-                    <label for="tickets">Number of Tickets:</label>
-                    <input type="number" id="tickets" name="tickets" required style="margin-top: 10px;"><br> <!-- Added margin-top -->
-                    <label for="credit_card">Credit Card Number:</label>
-                    <input type="text" id="credit_card" name="credit_card" required><br>
-                    <label for="csv">CSV:</label>
-                    <input type="text" id="csv" name="csv" required><br>
-                    <label for="expiration_date">Expiration Date:</label>
-                    <input type="text" id="expiration_date" name="expiration_date" required><br>
-                    <button type="submit" style="margin-top: 10px;">Order Now</button> <!-- Added margin-top -->
+                <form action="/order_success" method="post" style="display: flex; flex-direction: column; padding-top:10px;">
+                    <div style="display: flex; align-items: center;">
+                        <label for="tickets" style="margin-right: 10px; width: 200px; text-align:left;">Number of Tickets:</label>
+                        <input type="number" id="tickets" name="tickets" style="width:50%;" required><br>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <label for="credit_card" style="margin-right: 10px; width: 200px; text-align:left;">Credit Card Number:</label> 
+                        <input type="text" id="credit_card" name="credit_card" required><br>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <label for="csv" style="margin-right: 10px; width: 200px; text-align:left;">CSV:</label> 
+                        <input type="text" id="csv" name="csv" required><br>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <label for="expiration_date" style="margin-right: 10px; width: 200px; text-align:left;">Expiration Date:</label> 
+                        <input type="text" id="expiration_date" name="expiration_date" required><br>
+                    </div>
+                    <button type="submit" style="margin-top: 10px;" class="btn btn-secondary btn-lg">Order Now</button> 
                 </form>
             {% else %}
-                <p>No Tickets Available</p>
-                <p><a href="/buy_tickets" style="color: yellow;">Order Here</a></p>
+                <p><span style="background-color: #333; border-radius: 10px; margin: 30px auto; width: 40%;">No Tickets Available</p>
+                <p><a href="/buy_tickets" style="color: yellow;">Order Here</span></a></p>
             {% endif %}
         </div>
     </div>
