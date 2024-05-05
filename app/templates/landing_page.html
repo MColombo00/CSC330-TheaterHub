@@ -1,22 +1,34 @@
 {% extends "base.html" %}
 {% block title %}TheaterHub - Landing Page{% endblock %}
 {% block content %}
-    <span class="recommended">Recommended for you!</span>
-    <span class="movies_in_genre">Movies in &lt;genre1&gt;:</span>
-    <div class="poster-container">
-      <div class="square">Movie Poster</div>
-      <div class="square">Movie Poster</div>
-      <div class="square">Movie Poster</div>
-      <div class="square">Movie Poster</div>
-      <div class="square">Movie Poster</div>
-    </div>
-      <span class="movies_in_genre">Movies in &lt;genre2&gt;:</span>
-    <div class="poster-container">
-      <div class="square">Movie Poster</div>
-      <div class="square">Movie Poster</div>
-      <div class="square">Movie Poster</div>
-      <div class="square">Movie Poster</div>
-      <div class="square">Movie Poster</div>
-    </div>
-{% endblock %}
+<div style="font-size:32px; width:100%; text-align:center; margin-top:20px;">Playing Now!</div>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="width:30%; font-size:8px; display: block; margin-left: auto; margin-right: auto; margin-top: 20px;">
+  <div class="carousel-indicators">
+    {% for i in range(0, posters|length) %}
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ i }}" {% if i == 0 %}class="active"{% endif %} aria-current="true" aria-label="Slide {{ i+1 }}"></button>
+    {% endfor %}
+  </div>
+  <div class="carousel-inner">
+    {% for poster in posters %}
+      <div class="carousel-item {% if loop.first %}active{% endif %}">
+        <img src="{{ poster }}" class="d-block w-100" alt="...">
+      </div>
+    {% endfor %}
+  </div>
+  <button class="carousel-control-prev custom-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next custom-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var myCarousel = document.querySelector('#carouselExampleIndicators');
+    var carousel = new bootstrap.Carousel(myCarousel);
+  });
+</script>
+{% endblock %}

@@ -5,6 +5,7 @@ from app import db
 import sys
 import sqlite3
 import json
+import requests
 from flask import session
 
 api_key = 'eb6763dcd081514c5d528c58c863dd95'
@@ -19,7 +20,37 @@ def get_db_connection():
 
 @app.route('/')
 def landing_page():
-    return render_template('landing_page.html')
+    min_date = '2024-01-01'
+    max_date = '2024-12-31'
+
+    url = f"https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=release_date.desc&with_release_type=2|3&release_date.gte={min_date}&release_date.lte={max_date}&api_key={api_key}"
+
+    response = requests.get(url)
+
+    posters = []
+
+    if response.status_code == 200:
+        data = response.json()
+        # Extract relevant information, such as poster path, from the response
+        movies = data['results']
+        if movies:
+            # Choose the posters of the five most recent movies
+            for i in range(5):
+                if i < len(movies):
+                    movie = movies[i]
+                    poster_path = movie['poster_path']
+                    base_url = 'https://image.tmdb.org/t/p/w500'
+                    poster_url = base_url + poster_path
+                    posters.append(poster_url)
+                else:
+                    break
+        else:
+            print("No movies found in the given date range.")
+    else:
+        print("Error:", response.status_code)
+
+    return render_template('landing_page.html', posters=posters)
+
 
 @app.route('/buy_tickets')
 def buy_tickets_page():

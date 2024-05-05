@@ -164,30 +164,25 @@ body {
 }
 
 /* For the landing page */
-.recommended {
-    margin-top: 5px;
-    margin-left: 10px;
-    font-size: 36px;
-    color: white;
+.custom-prev,
+.custom-next {
+  font-size: 12px; /* Adjust button font size */
+  width: auto; /* Adjust button width */
+  height: auto; /* Adjust button height */
+  margin-top:275px; /* Position buttons vertically */
+  transform: translateY(-50%); /* Center buttons vertically */
+  background-color: transparent; /* Make buttons transparent */
+  border: none; /* Remove button border */
+  outline: none; /* Remove button outline */
 }
 
-.movies_in_genre {
-    margin-left: 40px;
-    margin-top: 10px;
-    font-size: 26px;
-    color: white;
+.custom-prev {
+  left: -80px; /* Position previous button to the left of the image */
 }
 
-.square {
-    width: 192px;
-    height: 288px;
-    border: 1px solid white;
-    text-align: center;
-    line-height: 288px;
-    margin-left: 35px;
-    margin-top: 5px;
+.custom-next {
+  right: -60px; /* Position next button to the right of the image */
 }
-
 /* For search results page */
         .result-container {
             display: flex;
