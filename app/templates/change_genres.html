@@ -1,25 +1,41 @@
 {% extends "base.html" %}
 {% block title %}TheaterHub - Change Genres{% endblock %}
 {% block content %}
-<div style="background-color: #333; border-radius: 10px; margin: 30px auto; width: 40%; padding-bottom: 30px;">
-    <h1>Change Genres</h1>
+<div style="background-color: #333; border-radius: 10px; margin: 30px auto; width: 40%; padding-bottom: 30px; padding-left:50px; padding-top:20px;"> 
+    <h1><span style="margin-left:60px;">Change Genres</span></h1>
     <form action="/update_genres" method="post">
-        <label for="genres">Select your favorite genres:</label><br>
-        <input type="checkbox" id="Action" name="genres" value="Action">
-        <label for="Action">Action</label><br>
-        <input type="checkbox" id="Drama" name="genres" value="Drama">
-        <label for="Drama">Drama</label><br>
-        <input type="checkbox" id="Comedy" name="genres" value="Comedy">
-        <label for="Comedy">Comedy</label><br>
-        <input type="checkbox" id="Horror" name="genres" value="Horror">
-        <label for="Horror">Horror</label><br>
-        <input type="checkbox" id="Romance" name="genres" value="Romance">
-        <label for="Romance">Romance</label><br>
-        <input type="checkbox" id="Fantasy" name="genres" value="Fantasy">
-        <label for="Fantasy">Fantasy</label><br>
-        
-        <!-- Button to submit form -->
-        <button type="submit">Submit</button>
+        <ul class="list-group" style="color:black; padding-bottom:20px; padding-top:10px; margin-left: 75px; width:50%;">
+        <li class="list-group-item">
+          <input class="form-check-input me-1" type="checkbox" id="Action" name="genres" value="Action">
+          <label class="form-check-label" for="Action">Action</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input me-1" type="checkbox" id="Comedy" name="genres" value="Comedy">
+          <label class="form-check-label" for="Comedy">Comedy</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input me-1" type="checkbox" id="Drama" name="genres" value="Drama">
+          <label class="form-check-label" for="Drama">Drama</label>
+        </li>
+
+        <li class="list-group-item">
+          <input class="form-check-input me-1" type="checkbox" id="Horror" name="genres" value="Horror">
+          <label class="form-check-label" for="Horror">Horror</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input me-1" type="checkbox" id="Romance" name="genres" value="Romance">
+          <label class="form-check-label" for="Romance">Romance</label>
+        </li>
+        <li class="list-group-item">
+          <input class="form-check-input me-1" type="checkbox" id="Fantasy" name="genres" value="Fantasy">
+          <label class="form-check-label" for="Fantasy">Fantasy</label>
+        </li>
+	</ul>
+
+	<div style="margin-left:50px;">
+        <button type="submit" class="btn btn-secondary btn-lg">Submit</button>
+	<a href="profile"><button type="button" class="btn btn-secondary btn-lg">Return to Profile</button></a>
+	</div>
     </form>
 </div>
 {% endblock %}
