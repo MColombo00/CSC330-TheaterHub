@@ -1,11 +1,23 @@
 {% extends "base.html" %}
 {% block title %}TheaterHub - Contact Us{% endblock %}
 {% block content %}
-	<span class="title">Frequently Asked Questions</span>
-	<span class="title" style="font-size:16px;">Contact details are at the bottom of this page.</span>
- 	<span class="title" style="font-size:24px;">Q: Do I need to sign up to buy tickets?</span>
-	<span class="title" style="font-size:16px;">A: No. While signing up is quick and free, TheaterHub wants to create an easy experience for all users. You will still need to provide an e-mail for a receipt, however, we do not save that information unless you are logged in.</span>
-	<span class="title" style="font-size:24px;">Q: How do I buy tickets?</span>
-	<span class="title" style="font-size:16px;">A: Click on the 'Buy Tickets' tab, and then type in a movie's name or genre into the search bar. Click on the movie you'd like to see, then click on the movie theater you'd like to see it at. You should then see the time slots the movies are playing at. Click on the one you want, and type in the quantity of tickets you'd like to buy, and hit confirm. Once that is done, you should see a summary of the tickets you're buying. Once you've confirmed the information is correct, type in any asked information and click "Checkout".</span>
-{% endblock %}
 
+    <!-- Question 1 -->
+    <span class="title">Frequently Asked Questions</span>
+    <span class="title" style="font-size:16px;">Contact details are at the bottom of this page.</span>
+    <span class="title" style="font-size:24px;">Q: Do I need to sign up to buy tickets?</span>
+    <span class="title" style="font-size:16px;">A: No. While signing up is quick and free, TheaterHub wants to create an easy experience for all users. You will still need to provide an e-mail for a receipt, however, we do not save that information unless you are logged in.</span>
+
+    <!-- Question 2 -->
+    <span class="title" style="font-size:24px;">Q: How do I buy tickets?</span>
+    <span class="title" style="font-size:16px;">A: Click on the 'Buy Tickets' tab, and then type in a movie's name or genre into the search bar. Click on the movie you'd like to see. Once you've confirmed the information is correct, type in any asked information and click "Checkout", and it should be ready to buy.</span>
+
+    <!-- Question 3 -->
+    <span class="title" style="font-size:24px;">Q: How do I create an account?</span>
+    <span class="title" style="font-size:16px;">A: Click on 'log in' and then click 'Register'. Fill out the form there, and hit 'submit' to register. If you are successful, you should be able to log in.</span>
+
+    <!-- Contact Information Section -->
+    <div id="contact-info" style="position: fixed; bottom: 20px; width: 78%; text-align: center;">
+        <p>Contact us at <a href="mailto:theaterHub.staff@gmail.com">theaterHub.staff@gmail.com</a></p>
+    </div>
+{% endblock %}
